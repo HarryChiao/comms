@@ -35,30 +35,28 @@ In the bustling metropolis of Leeds City, there exists a remarkable superhero kn
 Throughout the rest of the labs, we will be trying to trace his steps and replicate some gadgets from his arsenal.
 
 ## LK's early days
-So the very first program every programmer needs to learn to write is for printing "Hello world!". This seems to be an obsession.  Why is this the case? Well there is a Wikipedia article describing this (See here) but then again LK was unconventional. His first programming stint included creating a light show on a embedded board. Luckily, you have got the same board. He started with flashing LEDs connected with GPIO0-GPI04 in a sequence. Each LED toggled from high to low after 100 ms. Your mission, if you choose to accept is replicating his steps. Before you embark on this task go through the MicroPython Beginner's [Guide](./mpython).
+So the very first program every programmer needs to learn to write is for printing "Hello world!". This seems to be an obsession.  Why is this the case? Well there is a Wikipedia article describing this (https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) but then again LK was unconventional. His first programming stint included creating a light show on a embedded board. Luckily, you have got the same board. He started with flashing LED connected with GPIO21. The LED toggled from high to low after 100 ms. Your mission, if you choose to accept is replicating his steps. Before you embark on this task go through the MicroPython Beginner's [Guide](./mpython).
 
-Ok, now we know fair amount of the basic stuff. Next up, its time for disco lights . Literally, I mean that. On the board you have been given. There are two Neo-Pixel LEDs. These can create cool Neon like effect. These LED's are addressable LEDs, i.e. both are connected to same pin but numbered 0,1 and so on. These addressable LEDs allow using single pin to control the entire strip. Let us have a play with these by trying following snippet:
+Ok, Now that we know a fair amount of the basic stuff, it's time for disco lights. I mean that literally. The board you've been given has one addressable LED. An addressable LED allows you to use a single pin (GPIO 21) to control an entire strip. Let's play with it by trying the following snippet, which blinks the LED a specific number of times and then stops:
 
 ```python
-#import neopixel module
-import machine, neopixel
-np = neopixel.NeoPixel(machine.Pin(18), 2) #NeoPixel is connected to Pin 18 and there are two numbered zero and one on the board
-#set color for neopixel
-np[0] = (255, 0, 0)
-np[1] = (0, 0,255)
-#update the color
-np.write()
+import machine
+import time
+led = machine.Pin(21, machine.Pin.OUT)
+# Blink 5 times
+for i in range(5):
+    led.off()
+    time.sleep(0.5)
+    led.on()
+    time.sleep(0.5)
 ```
-<details>
-<summary>Task 1</summary>
-LK was big light show fan. Your task is to create a color palette of your choice comprised of three colors for each LED(see https://www.imgonline.com.ua/eng/color-palette.php or if this website is dead just use color picker in your Paint program to find RGB value for a color). Then create a show which blinks these Neo-Pixel's one after another.</details>
 
 ## Inventing LK's Communication System
 As LK grew up, he realised that this example was not much useful. Inspired by the Batman who used to merely flash his logo in the sky to enable one bit communication, the LK thought of something even more cool. May be his fondness of light-show can now turn in to creating a viable wireless communication system. A very primitive one yet a powerful example. He realised he can implement Morse Code by flashing the lights on the board. Therefore, implemented a system where any message provided by him could be transformed into Morse Code. He then started broadcasting these flashes to his friend who has smart phone with an app for decoding these messages. 
 
 <details>
-<summary>Task 2</summary>
-Your final mission today, if you choose to accept it, is implementing Morse code generator using the NeoPixel LEDs on the board. Store a message to be transmitted in some variable and then convert this message into Morse Code.
+<summary>Task 1</summary>
+Your final mission today, if you choose to accept it, is implementing Morse code generator using the LED on the board. Store a message to be transmitted in some variable and then convert this message into Morse Code.
 </details>
 
 ![Morse Code](./assets/morse.jpg)
@@ -66,19 +64,18 @@ Your final mission today, if you choose to accept it, is implementing Morse code
 If you need help, try completing skeleton code below:
 
 ```python
-import machine, neopixel
+import machine
 import time
-np = neopixel.NeoPixel(machine.Pin(18), 2) #NeoPixel is connected to Pin 18 and there are two numbered zero and one on the board
+led = machine.Pin(21, machine.Pin.OUT)  
+# LED is connected to Pin 21
 #declare a dictionary which has mapping between characters and code
+
 CODE = {'A':'.-','B':'-...',....}
-#declare a color for NeoPixel for On color
-color1=...
-#declar off color
-color2=...
 
 
-def flashNeo(t):
-    #write a function to flash NeoPixel for t sec
+
+def flashled(t):
+    #write a function to flash LED for t sec
     return
 
 
@@ -93,7 +90,7 @@ def send():
     
     
     
-    #write code to make sure NeoPixel is Off
+    #write code to make sure LED is Off
     
     for l in message:
        #l will now be a letter
@@ -101,14 +98,12 @@ def send():
         for e in c:
             #e will be characters in code
            if #write code to check what is the character
-               #blink the NeoPixel
+               #blink the LED
                time.sleep(tdot)
           #repeat above block to check for dash dot and end of word
 
         time.sleep(tword)
-    np[0]=color2
-    np[1]=color2
-    np.write()
+    
 
 while True:
     send()
