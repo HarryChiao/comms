@@ -28,8 +28,8 @@ The board we are using for our labs has plenty of LEDs for us to play with. Seve
 #import the module necessary to interact with GPIO
 import machine
 
-#declaration of Pin 1 as Output Pin
-myPin = machine.Pin(1, machine.Pin.OUT) 
+#declaration of Pin 26 as Output Pin
+myPin = machine.Pin(26, machine.Pin.OUT) 
 
 #set Pin to be high
 myPin.value(1)
@@ -61,7 +61,7 @@ from machine import Pin
 #import time
 import time
 
-myPin = machine.Pin(1,Pin.OUT)
+myPin = machine.Pin(26,Pin.OUT)
 
 while True: #Keep running this piece of code for ever
     myPin.value(1) #You can also use myPin.high()
