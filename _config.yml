@@ -2,7 +2,8 @@ title: IoT with MicroPython
 description: A Hands on approach to learning IoT
 theme: just-the-docs
 
-url: https://salirzaidi.github.io/comms/
+# url: https://salirzaidi.github.io/comms/
+url: https://harrychiao.github.io/comms/
 
 # Callouts are now supported as part of v.0.4.0.rc4
 # See: https://just-the-docs.github.io/just-the-docs/docs/configuration/#callouts

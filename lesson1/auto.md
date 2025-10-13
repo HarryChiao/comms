@@ -113,7 +113,7 @@ from machine import Pin,I2C
 import time
 from accelerometer import ADXL345
 
-i2c = I2C(1,sda=Pin(2),scl=Pin(3), freq=10000)
+i2c = I2C(1,sda=Pin(5),scl=Pin(6), freq=10000) #Note that the Pin number relies on the Pin you are actually using.
 adx = ADXL345(i2c)
 
 while True:
