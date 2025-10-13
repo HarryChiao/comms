@@ -68,10 +68,6 @@ After completing the installation of the Thonny IDE, our next step is completing
     2. **Write**: 
     ``esptool.py --chip esp32s3 --port [Port Name] --baud 460800 write_flash -z 0x0 [Bin File]``
 
-<!--      -->
-11. Open Thonny IDE and Click on **Run-->Configure Interpreter** and select the corresponding option as below.
-![Thonny Configuartion](global_assets/esp32s3_global_assets/ThonnyConfiguration.png)
-
 ## Thony IDE Tutorial
 Once you have got the MicroPython firmware on the board, you can use REPL prompt in Thonny to test Python Commands. The video below gives a quick walkthrough of basic features.
 
