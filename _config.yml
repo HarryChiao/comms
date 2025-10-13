@@ -1,8 +1,9 @@
 title: IoT with MicroPython
 description: A Hands on approach to learning IoT
-theme: minima
+theme: just-the-docs
 
 url: https://harrychiao.github.io/comms/
+baseurl: "/comms" # the subpath of your site, e.g. /blog
 
 # Callouts are now supported as part of v.0.4.0.rc4
 # See: https://just-the-docs.github.io/just-the-docs/docs/configuration/#callouts
