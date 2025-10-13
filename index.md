@@ -21,6 +21,7 @@ usetocbot: true
 
 ## Installation of IDE 
 The very first step for labs today is installation of the interactive development envirnoment you are going to use for the coding.  You can download Thonny from [here](https://thonny.org/).
+
 <video controls width="400">
   <source src="./global_assets/thonnyinstall.webm" type="video/webm" />
 </video>
@@ -29,7 +30,12 @@ The very first step for labs today is installation of the interactive developmen
 Connect ESP32S3 with Bootloader mode: Press and hold down the BOOT button while connecting the board with a type-C USB cable provided to the computer. After connecting, let go of the BOOT button.
 
 Then you can continue through either **Thonny** or using **Command Line**.
-![Screenshot of Board](./global_assets/esp32s3_global_assets/board.png)
+
+<!-- ![Screenshot of Board](./global_assets/esp32s3_global_assets/board.png) -->
+<p align="center">
+  <img src="./global_assets/esp32s3_global_assets/board.png" alt="System Overview" width="70%">
+</p>
+
 ### Flashing Through Thonny
 1. Open Thonny and click the right bottom as below and you should see a **configure interpreter**. Then enter configure interpreter.
 ![Enter configure interpreter](./global_assets/esp32s3_global_assets/EnterConfigureInterpreter.png)
