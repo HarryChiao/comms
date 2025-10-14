@@ -40,7 +40,7 @@ The Inter-Integrated Circuit (I2C) Protocol is intended for connecting multiple 
 Source: Sparkfun
 
 # Connect your ADXL345 to ESP32S3 through Shield
-Before we get in to the coding, let's connect our devices. To use a sensor like ADXL345, the preferred way is to use a Shield so that we can plug it when we want to test it. The sheild we are using is [*Grove Shield for XIAO with battery management chip*](https://wiki.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-embedded-battery-management-chip/) and it looks like the figure below.
+Before we get in to the coding, let's connect our devices. To use a sensor like ADXL345, the preferred way is to use a Shield so that we can plug it when we want to test it. The sheild we are using is [*Grove Shield for XIAO with battery management chip*](https://wiki.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-embedded-battery-management-chip/) and it looks like the figure in the step 1.
 
 You can find it not all Pins support I2C and a Pin on board is matched to a corresponding Pin on ESP32S3. To make sure that you are using the proper Pin and GPIO, follow the following:
 

@@ -94,7 +94,7 @@ Once you have got the MicroPython firmware on the board, you can use REPL prompt
 Some other places to find detailed account of IDE features include:
 1. Thonny's own website and Introductory [Video](https://www.youtube.com/watch?v=nwIgxrXP-X4)
 2. Random Nerd's [Page](https://randomnerdtutorials.com/getting-started-thonny-micropython-python-ide-esp32-esp8266/) which is for different processor but same steps really.
-3. ESP32S3 [Guidance](https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/2).
+3. ESP32S3 [Guidance](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/).
 <!-- 4. Micropython [Book](./global_assets/book.pdf) from Raspberry Pi Foundation. -->
 
 
