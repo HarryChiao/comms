@@ -39,7 +39,15 @@ The Inter-Integrated Circuit (I2C) Protocol is intended for connecting multiple 
 ![I2C Sparkfun](https://cdn.sparkfun.com/assets/learn_tutorials/8/2/I2C-Block-Diagram.jpg)
 Source: Sparkfun
 
+# Connect your ADXL345 to ESP32S3 through Shield
+Before we get in to the coding, let's connect our devices. To use a sensor like ADXL345, the preferred way is to use a Shield so that we can plug it when we want to test it. The sheild we are using is [*Grove Shield for XIAO with battery management chip*](https://wiki.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-embedded-battery-management-chip/) and it looks like the figure below.
 
+You can find it not all Pins support I2C and a Pin on board is matched to a corresponding Pin on ESP32S3. To make sure that you are using the proper Pin and GPIO, follow the following:
+
+1. Plug ADXL345 to the Pin that supports I2C.
+![sheild_pinout](../global_assets/esp32s3/shield_pinout.png)
+2. From the figure below, find the corresponding GPIO on ESP32S3 that is connected to the Pin on sheild for the further testing.
+![esp32s3_pinout](../global_assets/esp32s3/esp32s3_pinout.png)
 
 # Back to the Lab
 
@@ -106,20 +114,39 @@ class ADXL345:
 ```python
 from accelerometer import ADXL345
 ```
-6. Now write code to print (x,y,z), as well as roll and yaw from the accelerometer. Make sure you connect the accelerometer given to you to Grove port (one of the white connectors on boar) attached to GPIO2 and GPIO3. See following snippet and try to complete it:
+6. Now write code to print (x,y,z), as well as roll and yaw from the accelerometer. Make sure you connect the accelerometer given to you to Grove port (one of the white connectors on boar) attached to GPIO5 and GPIO6. See following snippet and try to complete it:
 
 ```python
 from machine import Pin,I2C
 import time
 from accelerometer import ADXL345
 
-i2c = I2C(1,sda=Pin(5),scl=Pin(6), freq=10000) #Note that the Pin number relies on the Pin you are actually using.
+i2c = I2C(sda=Pin(5),scl=Pin(6), freq=400000) #Note that the Pin number relies on the Pin you are actually using.
 adx = ADXL345(i2c)
 
 while True:
    #code to print the values
     time.sleep_ms(50)
 ```
+
+<!-- ```python
+from machine import Pin,I2C
+import time
+from accelerometer import ADXL345
+ 
+# ESP32-S3: Changed I2C pins to GPIO5 (SDA) and GPIO6 (SCL) (search for I2C at https://wiki.seeedstudio.com/xiao_esp32s3_with_micropython/#i2c)
+# Changed frequency from 10000 to 100000 for stable communication
+i2c =I2C(sda=Pin(5),scl=Pin(6), freq=400000)
+i2c.scan()
+adx = ADXL345(i2c)
+while True:
+    x = adx.xValue
+    y = adx.yValue
+    z = adx.zValue
+    roll, pitch = adx.RP_calculate(x, y, z)
+    print(f"X:{x}, Y:{y}, Z:{z}, Roll:{roll:.2f}, Pitch:{pitch:.2f}")
+    time.sleep_ms(50)
+``` -->
 
 
 7. Now to visualise the data, try using web serial demo here: [Web Serial](https://sekigon-gonnoc.github.io/web-serial-plotter/)
