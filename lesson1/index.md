@@ -110,10 +110,10 @@ while True:
     time.sleep(1)
 ```
 
-<details>
+<!-- <details>
 <summary>Something to try</summary>
 Next up, look up for the data sheet and schematic of the board. Find out how to play tunes on built in buzzer. Then why not try and program the buzzer to play morse code tune.
-</details>
+</details> -->
 
 If you want to check wether your Morse Code can be decoded correctly then download a Morse Code Engineer App on your smart phone and use camera to watch the decoded output.
 

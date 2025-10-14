@@ -27,7 +27,7 @@ The board we are using for our labs actually only has a single USER_LED.
 There are Several general purpose input and output pins (GPIOs) e.g. GPIO0, GPIO1, GPIO2, GPIO3, etc. you can find from the schematic below. But if you go through the schematic, you will find only GPIO connected to the USER_LED.
 
 <span class="fs-12">
-[schematic](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_SCH_v1.2.pdf){: .btn .btn-purple }
+[schematic](../global_assets/XIAO_ESP32S3_SCH_v1.2.pdf){: .btn .btn-purple }
 </span>
 
 For boards that have multiple LEDs, those LEDs are mainly for debugging purpose to show the status of GPIO. In order to blink any of those LEDs including the single one on our board, you just need to set the corresponding IO Pin to high or value 1.
