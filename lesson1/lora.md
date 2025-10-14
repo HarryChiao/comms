@@ -35,26 +35,24 @@ The Things Network provides a global, open LoRaWAN network with a set of open to
 ## Creating a new IoT application
 To begin, navigate to [The Things Network Homepage](https://www.thethingsnetwork.org/). You will see the following page:
 
-
-![ScreenshotofIDE1](./assets/SC1 (ttn webpage).jpg)
-
-
+![ScreenshotofIDE1](./assets/SC1_ttn_webpage.jpg)
 
 Click login as shown and choose **Experiment and explore with The Things Network** option. 
 
-![ScreenshotofIDE2](./assets/SC2 (ttn).jpg) 
+![ScreenshotofIDE2](./assets/SC2_ttn.jpg) 
 
 
-On the next page, use login detals as follows:
+On the next page, use login details as follows:
 
 Email: leeds_labs
 
 Password: lora1406@
 
-Then click **Login with The Things ID**. After loggin in, click on console from the user drop down menu on the right as shown ![ScreenshotofIDE3](./assets/SC2 (ttn console).jpg). To configure regional settings, use United Kingdom from the **Device or gateway lcation** dropdown and select **Europe 1** from existing clusters. ![ScreenshotofIDE4](./assets/SC3 (ttn settings).jpg. Choose **Create Application** on the next page. 
+Then click **Login with The Things ID**. After loggin in, click on console from the user drop down menu on the right as shown ![ScreenshotofIDE3](./assets/SC2_ttn_console.jpg). To configure regional settings, use United Kingdom from the **Device or gateway lcation** dropdown and select **Europe 1** from existing clusters. 
+![ScreenshotofIDE4](./assets/SC3_ttn_settings.jpg). Choose **Create Application** on the next page. 
 
 
-![ScreenshotofIDE5](./assets/SC4 (create app).jpg)
+![ScreenshotofIDE5](./assets/SC4_create_app.jpg)
 
 
 
