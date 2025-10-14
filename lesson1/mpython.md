@@ -23,7 +23,16 @@ Blinking an LED is the equivalent of "hello world" program for embedded develope
 {: .note }
 I am fully aware of how dull my students find blinking bunch of LEDs. Bear with me for this lab and we will not only learn the syntax but also see what is possible by merely blinking LEDs.
 
-The board we are using for our labs has plenty of LEDs for us to play with. Several general purpose input and output pins (GPIOs) e.g. GPIO0, GPIO1, GPIO2, GPIO3 etc. connected to blue LEDs. These LEDs are mainly for debugging purpose to show the status of GPIO.  In order, to blink any of these LEDs, you just need to set the corresponding IO Pin to high or value 1. Let us try, following piece of code:
+The board we are using for our labs actually only has a single USER_LED.
+There are Several general purpose input and output pins (GPIOs) e.g. GPIO0, GPIO1, GPIO2, GPIO3, etc. you can find from the schematic below. But if you go through the schematic, you will find only GPIO connected to the USER_LED.
+
+<span class="fs-12">
+[schematic](https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_SCH_v1.2.pdf){: .btn .btn-purple }
+</span>
+
+For boards that have multiple LEDs, those LEDs are mainly for debugging purpose to show the status of GPIO. In order to blink any of those LEDs including the single one on our board, you just need to set the corresponding IO Pin to high or value 1.
+
+Let us try, following piece of code:
 ```python
 #import the module necessary to interact with GPIO
 import machine
