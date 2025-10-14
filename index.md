@@ -35,19 +35,18 @@ You can continue through either:
 - **Thonny**
 - or using **Command Lines**.
 
-<!-- ![Screenshot of Board](./global_assets/esp32s3_global_assets/board.png) -->
 <p align="center">
-  <img src="./global_assets/esp32s3_global_assets/board.png" alt="System Overview" width="70%">
+  <img src="./global_assets/esp32s3/board.png" alt="System Overview" width="50%">
 </p>
 
-### Flashing Through Thonny
+### Flashing through Thonny
 This is the simplest way I found as you can finish flashing through only several clicks.
 1. Open Thonny and click the right bottom as below and you should see a **configure interpreter**. Then enter configure interpreter as below.
-![Enter configure interpreter](./global_assets/esp32s3_global_assets/EnterConfigureInterpreter.png)
+![Enter configure interpreter](./global_assets/esp32s3/EnterConfigureInterpreter.png)
 2. Select "interpreter kind" as MicroPython(ESP32), and the "Port or WebREPL" as the usbmodem101 or anything like it. For windows the port can be named as COM3 or anything like it. Then click **Install or update MicroPython (esptool) (UF2)** can be found at the right bottom.
-![configure interpreter](./global_assets/esp32s3_global_assets/ConfigureInterpreter.png)
+![configure interpreter](./global_assets/esp32s3/ConfigureInterpreter.png)
 3. Then select options as the figure below. (*the "Target port" can be different. You may need to select any looks like the one in the figure.*) Then click "Install" to erase and install firmware into ESP32S3.
-![install micropython](./global_assets/esp32s3_global_assets/installmicropython.png)
+![install micropython](./global_assets/esp32s3/installmicropython.png)
 
 ### Using Command Lines
 Follow the following step to accomplish this task in a hardcore way:
@@ -55,9 +54,9 @@ Follow the following step to accomplish this task in a hardcore way:
     1. Launch MicroPython [website](https://micropython.org/).
     2. Click on [Download](https://micropython.org/download/) option from Navigation Menu.
     3. The Download page shows, various different MCUs for which MicroPython is available. From MCU section click on esp32s3.
-    ![MicroPython Website](./global_assets/esp32s3_global_assets/mpythoninstall.png)
+    ![MicroPython Website](./global_assets/esp32s3/mpythoninstall.png)
     4. From options select ESP32-S3 Espressif.
-    ![Screenshot of Website](./global_assets/esp32s3_global_assets/ESP32S3.png)
+    ![Screenshot of Website](./global_assets/esp32s3/ESP32S3.png)
     5. The page should now show all the releases. From Releases section, select the latest release this is indicated in bold and is the first item on the list. 
     6. Click the link to download the firmware file named with the end of ".bin".
 
@@ -72,14 +71,20 @@ Follow the following step to accomplish this task in a hardcore way:
 3. Erase and Write using esptool:
 
     1. Download **esptool**: open your Command Line or Terminal and try `pip install esptool`. Then, try `esptool -h` or `esptool.py -h` to see if esptool is ready.
-    2. Now we need to use esptool to erase the flash in ESP32S3 and write the firmware into ESP32S3. NOTE THAT, to use these command, you need to find the **Port Name** and **Bin File** and replace the commands below with your actual ones. For example, let's say I found my port name is `/dev/cu.usbmodem1101` and my bin file is `ESP32_GENERIC_S3-20250911-v1.26.1.bin`. Then I type this down, 
-      ``esptool.py --chip esp32s3 --port /dev/cu.usbmodem1101 --baud 460800 write_flash -z 0x0 ESP32_GENERIC_S3-20250911-v1.26.1.bin``
-
+    2. Now we need to use esptool to erase the flash in ESP32S3 and write the firmware into ESP32S3. 
         1. **Erase**: 
         ``esptool.py --chip esp32s3 --port [Port Name] erase_flash``
 
         2. **Write**: 
         ``esptool.py --chip esp32s3 --port [Port Name] --baud 460800 write_flash -z 0x0 [Bin File]``
+
+    {: .note }
+    NOTE THAT, to use these commands, you need to find the **Port Name** and **Bin File** and replace the commands below with your actual ones. For example, let's say I found my port name is `/dev/cu.usbmodem1101` and my bin file is `ESP32_GENERIC_S3-20250911-v1.26.1.bin`. 
+    
+    Then I type this down, ``esptool.py --chip esp32s3 --port /dev/cu.usbmodem1101 --baud 460800 write_flash -z 0x0 ESP32_GENERIC_S3-20250911-v1.26.1.bin``
+
+
+    
 
     Then you should be able to go through step 1 and 2 in Thonny to connect to your ESP32S3 and test your code.
 
