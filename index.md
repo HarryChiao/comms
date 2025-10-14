@@ -61,7 +61,7 @@ Follow the following step to accomplish this task in a hardcore way:
     6. Click the link to download the firmware file named with the end of ".bin".
 
 2. Find your port name for further operations:
-    1. Now, if our ESP32S3 is connected properly, we can find the device we just connected from our computer. To find the device, we need to check the Port Name through either way from below:
+    1. Now, if our ESP32S3 is connected properly, we can find the device just connected to our computer. To find the device, we need to check the **Port Name** through either way from below:
         - **Windows**:
             - open **Device Manager-->Serial Port**, there should be a device with the named of **"COMX"**, X can be a figure, e.g., "COM3" or "COM4".
         - **MacOS & Linux**: on your terminal try command
@@ -71,7 +71,7 @@ Follow the following step to accomplish this task in a hardcore way:
 3. Erase and Write using esptool:
 
     1. Download **esptool**: open your Command Line or Terminal and try `pip install esptool`. Then, try `esptool -h` or `esptool.py -h` to see if esptool is ready.
-    2. Now we need to use esptool to erase the flash in ESP32S3 and write the firmware into ESP32S3. 
+    2. Now we need to use esptool to erase the flash in ESP32S3 and write the firmware into ESP32S3 using the commands with the **Port Name** and the **Bin File** from the steps above.
         1. **Erase**: 
         ``esptool.py --chip esp32s3 --port [Port Name] erase_flash``
 
@@ -79,12 +79,8 @@ Follow the following step to accomplish this task in a hardcore way:
         ``esptool.py --chip esp32s3 --port [Port Name] --baud 460800 write_flash -z 0x0 [Bin File]``
 
     {: .note }
-    NOTE THAT, to use these commands, you need to find the **Port Name** and **Bin File** and replace the commands below with your actual ones. For example, let's say I found my port name is `/dev/cu.usbmodem1101` and my bin file is `ESP32_GENERIC_S3-20250911-v1.26.1.bin`. 
-    
-    Then I type this down, ``esptool.py --chip esp32s3 --port /dev/cu.usbmodem1101 --baud 460800 write_flash -z 0x0 ESP32_GENERIC_S3-20250911-v1.26.1.bin``
-
-
-    
+    For example, let's say I found my port name is `/dev/cu.usbmodem1101` and my bin file is `ESP32_GENERIC_S3-20250911-v1.26.1.bin`. 
+    Then I type this down, ``esptool.py --chip esp32s3 --port /dev/cu.usbmodem1101 --baud 460800 write_flash -z 0x0 ESP32_GENERIC_S3-20250911-v1.26.1.bin``    
 
     Then you should be able to go through step 1 and 2 in Thonny to connect to your ESP32S3 and test your code.
 
