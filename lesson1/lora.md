@@ -26,7 +26,7 @@ LoRA Wide Area Network (LoRaWAN) is a Media Access Control (MAC) layer protocol 
 In terms of architecture, as shown above the devices you are programming are sensors. These will transmit to LoRaWAN gateways. Leeds has about 28 such gateways deployed across the city. [TTN Mapper](https://ttnmapper.org/heatmap/) provides map which shows the active gateways. When you transmit data from your devices, these gateways will receive the data. This will then be forwarded to an open cloud called Things Network. Anyone can add gateways to TTN. As a matter of fact the transceiver module you have you can also use them to build your own gateway. However, we will not do this during these labs and use commercial gateways already deployed. Since LoRa is just a MAC protocol, the gateways then use a piece of software called packet broker to route the packets to the TTN application layer. The gateways can have either WiFi/3G/Cellular or even satellite connectivity. As a matter of fact you can even have LoRa gateway on UAV, satellite or Drones. See ([1](https://www.echostarmobile.com/wp-content/uploads/2022/04/EchoStar_Mobile_White_Paper_compressed.pdf), [2](https://www.daveakerman.com/?p=2828)). 
 
 {: .note }
-In this lab, you will learn some basics about the tecnhology along as well as send your accelerometer data (x,y,z) from previous lab using Seeed LoRa-E5 module interfaced with the MakerPi RP2040 board we have been using. Seeed LoRa-E5 is a compacted-sized development board suitable for the rapid testing and building of small-size prototyping and helps you design your ideal LoRaWAN wireless IoT device with a long-distance transmission range. The data will be broadcasted and will be picked up by one of The Things Network (TTN) gateways deployed across Leeds. You will be using Thonny IDE for coding as before. To setup, please follow instructions from previous lab.
+In this lab, you will learn some basics about the tecnhology along as well as send your accelerometer data (x,y,z) from previous lab using Seeed LoRa-E5 module interfaced with the XIAO ESP32S3 board we have been using. Seeed LoRa-E5 is a compacted-sized development board suitable for the rapid testing and building of small-size prototyping and helps you design your ideal LoRaWAN wireless IoT device with a long-distance transmission range. The data will be broadcasted and will be picked up by one of The Things Network (TTN) gateways deployed across Leeds. You will be using Thonny IDE for coding as before. To setup, please follow instructions from previous lab.
 
 
 # The Things Network (TTN)
@@ -59,8 +59,8 @@ Then click **Login with The Things ID**. After loggin in, click on console from 
 Enter a unique Application ID on the following screen along with an **Accelerometer Test** as application name and description in respective text boxes as shown. Click create application button. Try out a few if the one you entered already exists untill you have a unique ID to create an application. Once you have successfully created an application, it will appear in the list of existing applications and can be accessed from the **Applications** tab on the top of the TTN webpage.  
 
 ## Registering a new device
-To register an IoT end node, we need to specify it Device and Join Extended Uniques Identifies abbreviated as DevEUI and JoinEUI respectively. The DevEUI is  64-bit globally-unique ID assigned by the manufacturer, or the owner, of the end-device. The JoinEUI (AppEUI) is a 64-bit globally unique identifier assigned to the LoRaWAN network's Join Server by either its owner or operator. We first need to extract this from our LoRa board which is connected to the RP2040. For this purpose, complete the following steps:
-1. Plug in the RP2040 to the lab computer. 
+To register an IoT end node, we need to specify it Device and Join Extended Uniques Identifies abbreviated as DevEUI and JoinEUI respectively. The DevEUI is  64-bit globally-unique ID assigned by the manufacturer, or the owner, of the end-device. The JoinEUI (AppEUI) is a 64-bit globally unique identifier assigned to the LoRaWAN network's Join Server by either its owner or operator. We first need to extract this from our LoRa board which is connected to the XIAO ESP32S3. For this purpose, complete the following steps:
+1. Plug in the XIAO ESP32S3 to the lab computer. 
 2. Create a new folder called Lab 3.
 3. Navigate to this folder from Thonny IDE.
 4. Create two new files in this folder, one called **main.py** and other called **LoRaNet.py**.
@@ -190,8 +190,8 @@ from accelerometer import ADXL345
 from LoRaNet import LoRaNet
 import ubinascii
 
-i2c = I2C(1,sda=Pin(2),scl=Pin(3), freq=10000)
-uart1 = UART(1, baudrate=9600, tx=Pin(4), rx=Pin(5))
+i2c = I2C(1,sda=Pin(5),scl=Pin(6), freq=10000)
+uart1 = UART(1, baudrate=9600, tx=Pin(43), rx=Pin(44))
 app_key = None 
 adx = ADXL345(i2c)
 loranet = LoRaNet(uart1,app_key)
@@ -217,16 +217,16 @@ It is now time to configure the application and associate an end IoT node with i
 
 
 
- ![ScreenshotofIDE6](./assets/SC6.jpg)
+ ![ScreenshotofIDE6](./assets/SC6.png)
 
 
 
  You will be taken to the device specification page. Here, fill in the following information:
  1. Choose **Select the end device in the LoRaWAN Device Repository** in the inpt method for end device type section.
  2. From the dropdown menu, select **Seeed Technology Co. Limited** as End Device Brand, **LoRa-E5 mini** as the Model and **EU_863_870** in the Profile (Region) dropdown. Leave Hardware and Firmaware version as 1.0 as set by default. Do not change this.
- 3. Select frquency plan to be **Europe 863-870 MHz (SF9 for RX-recommended)**.
+ 3. Select frequency plan to be **Europe 863-870 MHz (SF9 for RX-recommended)**.
 
- ![ScreenshotofIDE8](./assets/SC8.jpg)
+ ![ScreenshotofIDE8](./assets/SC8.png)
  
  4. In the Provisioning Information section, provide the **JoinEUI** from Thonny IDE output. Click **Confirm**.
  5. Similarly provide the **DevEUI**.
